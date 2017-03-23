@@ -1,17 +1,28 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
-from .forms import ViewForm
-from  student.models import StudentContactDetails
+from django.shortcuts import render,redirect,render_to_response
+from StudentInformationSystem.forms import PersonInfoForm
+from StudentInformationSystem.models import PersonalInfo
+from django.http import HttpResponse,HttpResponseRedirect
+
 
 def index(request):
+	return HttpResponse("WELCOME TO STUDENT INFORMATION SYSTEM")
+
+
+def base(request):
     if request.method == "POST":
-        form = ViewForm(request.POST) 
+        form = PersonInfoForm(request.POST)
         if form.is_valid():
-            StudentContactDetails = form.save(commit = False)
-            StudentContactDetails.save()            
+            PersonInfo = form.save(commit=False)
+            PersonInfo.save()
             return redirect('success')
-        else:
-            form = ViewForm()
-        return render(request, "index.html", {'form': form})
-def success(request):
-    return HttpResponse('Success!Updated.')
+    else:
+        form = PersonInfoForm()
+    return render(request, 'StudentInformationSystem/base.html', {'form': form})
+	
+def display(request):
+         try:
+             Student = PersonalInfo.objects.all()
+         except PersonalInfo.DoesNotExist:
+             raise Http404("Comment does not exist")
+            
+         return render(request, "StudentInformationSystem/display.html",{'Student': Student})
