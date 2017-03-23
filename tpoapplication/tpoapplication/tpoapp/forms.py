@@ -1,7 +1,10 @@
 from django.forms import ModelForm
-from tpoapp.models import Drive
+from TPOv1.models import Drive
+#from django.utils import timezone
+#from django import forms
 
-class ViewForm(ModelForm):
-    class Meta:
-        model = Drive
-        fields = '__all__'
+class DriveForm(ModelForm):
+	class Meta:
+		model = Drive
+		fields = "__all__"
+
