@@ -70,17 +70,40 @@
       
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Acadamic Details</h1>
-      <form method="post"> 
-		{% csrf_token %}
-		{{ formA.as_p }}
-		{{ formA.student_id }}
-		
-		{% for student in id %}
-
-		<p> {{student.student_id}}</p>
-		<input type="hidden" name="student_id" id = "student_id" value = {{student.student_id}} />
-		{% endfor %}
+      <h1>Personal Details</h1>
+      
+		<form method="post">
+			{% csrf_token %}
+			
+				{{id}}
+					<br>
+					{% for student in id %}
+					<table class = "table">
+					
+					<tr>
+					<td><label>ID : </label></td><td><input type="text" name="student_id" value={{student.student_id}} disabled></td>
+					</tr>
+					<tr>
+					<td><label>First Name :</label></td><td><input type="text" name="student_firstname" value={{student.student_firstname}}></td>
+					</tr>
+					<tr>
+					<td><label>Last Name :</label></td><td><input type="text" name="student_lastname" value={{student.student_lastname}}></td>
+					</tr>
+					<tr>
+					<td><label>DOB :</label></td><td><input type="text" name="student_dob" value={{student.student_dob}}></td>
+					</tr>
+					<tr>
+					<td><label>Address :</label></td><td><input type="text" name="student_address" value={{student.student_address}}></td>
+					</tr>
+					<tr>
+					<td><label>Email Id :</label></td><td><input type="text" name=".student_email" value={{student.student_email}}></td>
+					</tr>
+					<tr>
+					<td><label>Contact Number :</label></td><td><input type="text" name="student_phoneno" value={{student.student_phoneno}}></td>
+					</tr>
+					</table>
+					{% endfor %}
+					
 		<div class="form-actions">
 			<button type="submit" class="btn btn-primary btn-Custom">Submit</button>
 		</div>

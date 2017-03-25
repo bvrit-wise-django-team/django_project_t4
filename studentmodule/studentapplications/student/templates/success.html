@@ -1,7 +1,11 @@
-<h1>done</h1>
+<!-- <h1>done</h1>
 
 {% for student in student_details %}
-<p>{{student.student_id}} : {{student.student_firstname}}</p>
+<p> ID : {{student.student_id}}</p>
+<p> First Name: {{student.student_firstname}}</p>
+<p> Last Name: {{student.student_lastname}}</p>
+<p> DOB: {{student.student_dob}}</p>
+<p> Address: {{student.student_address}}</p>
 {% endfor %}
 
 {% for studenta in acadamic_details %}
@@ -10,4 +14,190 @@
 
 {% for studentb in additional_details %}
 <p>{{studentb.student_id}} : {{studentb.coacademicactivities}}</p>
-{% endfor %}
+{% endfor %} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 1000px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      
+    </div>
+    <div class="col-sm-8 text-left"> 
+			<div class="container">
+				<h3><Name></h3>
+				<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#home">Personal Details</a></li>
+				<li><a data-toggle="tab" href="#menu1">Notifications</a></li>
+				</ul>
+				<br>
+				
+				<div id="home" class="tab-pane fade in active" align="center">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-5">
+					<form>
+					<br>
+					{% for student in student_details %}
+					<table class = "table">
+					<tr>
+					<td><label>Personal Details</label></td><td></td>
+					</tr>
+					<tr>
+					<td><label>ID : </label></td><td>{{student.student_id}}</td>
+					</tr>
+					<tr>
+					<td><label>First Name :</label></td><td>{{student.student_firstname}}</td>
+					</tr>
+					<tr>
+					<td><label>Last Name :</label></td><td>{{student.student_lastname}}</td>
+					</tr>
+					<tr>
+					<td><label>DOB :</label></td><td>{{student.student_dob}}</td>
+					</tr>
+					<tr>
+					<td><label>Address :</label></td><td>{{student.student_address}}</td>
+					</tr>
+					<tr>
+					<td><label>Email Id :</label></td><td>{{student.student_email}}</td>
+					</tr>
+					<tr>
+					<td><label>Contact Number :</label></td><td>{{student.student_phoneno}}</td>
+					</tr>
+					</table>
+					{% endfor %}
+					</form>
+				
+					<form>
+					<br>
+					{% for studenta in acadamic_details %}
+					<table class = "table">
+					<tr>
+					<td><label>Academic Details</label></td><td></td>
+					</tr>
+					<tr>
+					<td><label>Year of Joining : </label></td><td>{{studenta.yearOfJoining}}</td>
+					</tr>
+					<tr>
+					<td><label>Aggregate :</label></td><td>{{studenta.aggregate}}</td>
+					</tr>
+					<tr>
+					<td><label>Senior Secondary Institute :</label></td><td>{{studenta.senior_secondary_institute}}</td>
+					</tr>
+					<tr>
+					<td><label>Senior Secondary Board :</label></td><td>{{studenta.senior_secondary_board}}</td>
+					</tr>
+					<tr>
+					<td><label>Senior Secondary Percentage :</label></td><td>{{studenta.senior_secondary_percentage}}</td>
+					</tr>
+					<tr>
+					<td><label>Secondary Institute :</label></td><td>{{studenta.secondary_institute}}</td>
+					</tr>
+					<tr>
+					<td><label>Secondary Percentage :</label></td><td>{{studenta.secondary_percentage}}</td>
+					</tr>
+					<tr>
+					<td><label>Program :</label></td><td>{{studenta.program}}</td>
+					</tr>
+					</table>
+					
+					{% endfor %}
+					</form>
+				
+					<form>
+					<br>
+					
+					<table class = "table">
+					<tr>
+					<td><label>Additional Details</label></td><td><a href="/additionaldetails/{{id}}/" class="btn btn-primary">ADD</a></td>
+					</tr>
+					<tr>
+					{% for studentb in additional_details %}
+					<td><label>{{studentb.coacademicactivities}} : </label></td><td>{{studentb.details}}</td>
+					
+					</tr>
+					{% endfor %}
+					<tr>
+					</table>
+					{{id}}
+					
+					</form>	
+				</div>	
+				</div>
+				<div id="menu3" class="tab-pane fade"></div>
+			</div>
+    </div>
+    <div class="col-sm-2 sidenav">
+      
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+
+</body>
+</html>
