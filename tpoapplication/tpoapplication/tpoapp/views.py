@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect,render_to_response
 from .forms import DriveForm
-from  TPOv1.models import Drive
+from  tpoapp.models import Drive
 
 
 def index(request):
@@ -22,7 +22,7 @@ def success(request):
 				drive_details = Drive.objects.all()
 			except Drive.DoesNotExist:
 				raise Http404("DriveDetails does not exist")
-			return render(request, 'viewDrives.html', {'drive_details': drive_details})
+			return render(request, 'success.html', {'drive_details': drive_details})
 			
 def display(request):
 			try:

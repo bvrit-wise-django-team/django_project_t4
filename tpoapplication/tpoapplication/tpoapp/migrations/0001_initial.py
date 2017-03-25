@@ -14,11 +14,10 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Comment',
+            name='Drive',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Remarks', models.CharField(max_length=200)),
-                ('Suggestions', models.TextField()),
+                ('drive_name', models.CharField(max_length=200)),
+                ('drive_date', models.DateField()),
             ],
         ),
     ]
